@@ -91,29 +91,28 @@ function loadQuiz(){
   b.childNodes[1].textContent = currentQuizData['b']
   c.childNodes[1].textContent = currentQuizData['c']
   d.childNodes[1].textContent = currentQuizData['d']
-  console.log(quizIndex)
 }
 
 
 choices.addEventListener('click', (e) => {
+  // gets players answer
   playersAnswer = e.target.childNodes[1].textContent
-  checkAnswer(playersAnswer, currentQuizData['answer'])
+  // move on to the next questions
+  quizIndex++
   
-  if (quizIndex < quizData.length - 1){
+  // checkAnswer(playersAnswer, currentQuizData['answer'])
+  if(playersAnswer === currentQuizData['answer']){
+    console.log('correct!')
+    playersScore++
+  }
+  // updates players score
+  score.innerText = playersScore
 
+  // load quiz if there are still quiz left, otherwise show alert
+  if (quizIndex < quizData.length -1 ){
     loadQuiz()
+
   } else {
     window.alert(`You completed the quiz! Your total score is ${playersScore}`)
-
   }
-  quizIndex++
 })
-
-
-function checkAnswer(playersAnswer, answer){
-  if (playersAnswer == answer){
-    console.log('correct')
-    playersScore++
-    score.innerText = playersScore
-  }
-}
