@@ -1,3 +1,5 @@
+const main = document.querySelector('#main')
+
 const questionsAndAnswers = [
   {
     question: 'In what year were the first Air Jordan sneakers released?',
@@ -16,7 +18,20 @@ const questionsAndAnswers = [
   }
 ]
 
-
+questionsAndAnswers.forEach(qAndA => {
+  let html = `
+  <div class="question">
+        ${qAndA.question}
+      </div>
+      <div class="choices">
+        <div class="choice a">${qAndA.choiceA}.</div>
+        <div class="choice b">${qAndA.choiceB}</div>
+        <div class="choice c">${qAndA.choiceC}</div>
+        <div class="choice d">${qAndA.choiceD}</div>
+      </div>
+  `
+  main.innerHTML = html
+})
 
 
 // questions from obj
