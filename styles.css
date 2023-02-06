@@ -1,0 +1,20 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: solid 1px red;
+}
+
+body {
+  font-family: 'Barlow', sans-serif;
+}
+
+.container {
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: 100px 40px;
+}
+
+header {
+  text-align: center;
+}
